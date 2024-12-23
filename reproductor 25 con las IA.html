@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Radio</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+            color: #fff;
+        }
+
+        .player-container {
+            background: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .player-container img {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .player-container h1 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .play-button {
+            background-color: #120af7;
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 24px;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .play-button:hover {
+            background-color: #f2f205;
+        }
+
+        footer {
+            margin-top: 15px;
+            font-size: 0.8em;
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="player-container">
+        <img src="https://i.postimg.cc/j2n18RXV/envivologo-app.jpg" alt="Radio Logo">
+        <h1>Radio TVES San José</h1>
+        <button class="play-button" id="playPauseButton">▶️</button>
+        <audio id="radioPlayer" src="https://server7.hostradios.com:7118/stream"></audio>
+        <footer>
+            Seguinos en redes sociales @envivotves
+        </footer>
+    </div>
+
+    <script>
+        const playPauseButton = document.getElementById('playPauseButton');
+        const radioPlayer = document.getElementById('radioPlayer');
+
+        playPauseButton.addEventListener('click', () => {
+            if (radioPlayer.paused) {
+                radioPlayer.play();
+                playPauseButton.textContent = '⏸️';
+            } else {
+                radioPlayer.pause();
+                playPauseButton.textContent = '▶️';
+            }
+        });
+    </script>
+
+</body>
+</html>
